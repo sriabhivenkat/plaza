@@ -2,7 +2,7 @@ import React from 'react';
 import Landing from '../Landing.js';
 import NavbarComp from '../NavbarComp.js';
 
-function Home() {
+function LandingPage() {
     return(
         <>
             <NavbarComp />
@@ -12,4 +12,4 @@ function Home() {
 }
 
 
-export default Home;
+export default LandingPage;
