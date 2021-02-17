@@ -30,3 +30,8 @@
 .prependstyling1 {
   font-family: "Inter";
 }
+.google {
+  display: flex;
+  align-items: center;
+  margin-top: 10%;
+}

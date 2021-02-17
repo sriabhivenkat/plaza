@@ -17,7 +17,7 @@ const Authenticate = ({history}) => {
             try {
                 await firebase
                     .auth()
-                    .signInWithEmailAndPassword(email.value, password.value);
+                    .signInWithEmailAndPassword(email.value, password.value)
                 history.push("/dashboard");
             } catch (error) {
                 console.log(error);
@@ -26,9 +26,9 @@ const Authenticate = ({history}) => {
         [history]
     );
 
-    const {user} = useContext(AuthContext);
+    const {currentUser} = useContext(AuthContext);
 
-    if(user) {
+    if(currentUser) {
         return <Redirect to="/dashboard" />;
     }
 
@@ -48,6 +48,7 @@ const Authenticate = ({history}) => {
                         <Button variant="dark" type="submit">Log In!</Button>
                     </div>
                 </form>
+                <Button variant="danger" onClick={signInWithGoogle} className="google">Sign In with Google</Button>
             </div>
         </div>
     )

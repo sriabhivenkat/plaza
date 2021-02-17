@@ -1,12 +1,12 @@
-import React from 'react';
-import Landing from '../Landing.js';
-import NavbarComp from '../NavbarComp.js';
+import React from 'react'
+import DashNavbarComp from '../DashNavbarComp.js';
+import DashboardComp from '../DashboardComp.js';
 
 function Dashboard() {
     return(
         <>
-            <NavbarComp />
-            <h1>hello</h1>
+            <DashNavbarComp />
+            <DashboardComp />
         </>
     );
 }

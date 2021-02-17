@@ -12,11 +12,25 @@ import firebase from 'firebase/app';
 function SignIn({history}) {
     const handleSignUp = useCallback(async event => {
         event.preventDefault();
-        const {email, password, handle} = event.target.elements;
+        const {email, password, handle, first, last} = event.target.elements;
         try {
             await firebase 
                 .auth()
-                .createUserWithEmailAndPassword(email.value, password.value);
+                .createUserWithEmailAndPassword(email.value, password.value)
+                .then(() => {
+                        var uidval = firebase.auth().currentUser.uid;
+                        firebase
+                        .firestore()
+                        .collection("Users")
+                        .doc(uidval)
+                        .set({
+                            emailval: email.value,
+                            handleval: handle.value,
+                            firstName: first.value,
+                            lastName: last.value,
+                            uidvalue: uidval,
+                        })
+                })
             history.push("/dashboard");        
         } catch(e) {
             console.log(e);
@@ -40,6 +54,14 @@ function SignIn({history}) {
                         
                         <label>
                             <input name="handle" type="handle" placeholder="Handle" />
+                        </label>
+
+                        <label>
+                            <input name="first" type="first" placeholder="First name" />
+                        </label>
+
+                        <label>
+                            <input name="last" type="last" placeholder="Last name" />
                         </label>
                         <Button variant="dark" type="submit">Sign Up!</Button>
                     </div>

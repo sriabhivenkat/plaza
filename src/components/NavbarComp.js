@@ -7,8 +7,8 @@ import './Navbar.css'
 
 function NavbarComp() {
     return(
-        <div className="m-auto">
-                <Navbar bg="light" variant="light" className="m-auto">
+        <div>
+                <Navbar bg="light" variant="light" className="mc-auto">
                     <Navbar.Brand href="/" className="brand">
                         Project Aurora
                     </Navbar.Brand>
