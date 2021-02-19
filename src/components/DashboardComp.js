@@ -35,7 +35,7 @@ const DashboardComp = () => {
                 <form>
                     <div className="inputfield">
                         <label>
-                            <input name="keywordsearch" type="keywordsearch" placeholder="Enter keywords to find papers" size="100"/>
+                            <input name="keywordsearch" type="keywordsearch" placeholder="Enter keywords to find papers or researchers " size="100"/>
                         </label>
                     </div>
                 </form>

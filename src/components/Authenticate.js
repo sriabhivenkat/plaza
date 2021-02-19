@@ -33,7 +33,7 @@ const Authenticate = ({history}) => {
     }
 
     return(
-        <div className="landingcontainer2">
+        <div className="landingcontainerlogin">
             <div className="card">
                 <h1 style={{textAlign: "center"}}>Log In</h1>
                 <form onSubmit={loginForMe}>

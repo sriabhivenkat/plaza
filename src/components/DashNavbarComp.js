@@ -15,6 +15,7 @@ function DashNavbarComp() {
                         Project Aurora
                     </Navbar.Brand>
                     <Nav className="ml-auto">
+                        <Nav.Link href='/dashboard'>Dashboard</Nav.Link>
                         <Nav.Link href="/profile">My Profile</Nav.Link>
                         <Nav.Link onClick={signOut} className="linkStyling">Sign Out</Nav.Link>
                     </Nav>

@@ -39,8 +39,8 @@ function SignIn({history}) {
     
 
     return(
-        <div className="landingcontainer2">
-            <div className="card">
+        <div className="landingcontainerregister">
+            <div className="card2">
                 <h1 style={{textAlign: "center"}}>Sign Up</h1>
                 <form onSubmit={handleSignUp}>
                     <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
