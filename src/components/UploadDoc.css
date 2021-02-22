@@ -1,0 +1,45 @@
+.uploadcontainer {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #f5f5f5;
+  object-fit: contain;
+  overflow-x: hidden;
+}
+
+.title {
+  display: flex;
+  width: 35%;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../assets/background-upload.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.uploadstuff {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  margin-top: 2.5%;
+}
+
+.uploadstuff > h1 {
+  font-weight: 300;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+.form > p {
+  color: gray;
+  margin-bottom: -0.25%;
+}

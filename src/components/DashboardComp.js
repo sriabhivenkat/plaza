@@ -28,6 +28,7 @@ const DashboardComp = () => {
     //const searchforshit=useCallback(async event => {
 
     //}, [])
+    document.title=first+"'s Dashboard"
     return(
         <>
             <div className="dashcontainer">

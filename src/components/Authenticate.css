@@ -1,5 +1,5 @@
 .landingcontainerlogin {
-  height: 90vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@
   padding-bottom: 7%;
   display: flex;
   flex-direction: column;
-  border-radius: 25px;
+  border-radius: 50px;
 }
 .buttonText {
   font-family: "Inter";

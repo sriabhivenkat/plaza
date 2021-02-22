@@ -8,6 +8,7 @@ import Dashboard from './components/pages/Dashboard';
 import { AuthProvider } from './components/navigation/AuthProvider';
 import PrivateRoute from './components/navigation/PrivateRoute.js';
 import Profile from './components/pages/Profile';
+import Upload from './components/pages/Upload'
 
 export const AuthContext = React.createContext(null);
 
@@ -26,6 +27,7 @@ function App() {
               <Route path='/register' component={Register} />
               <PrivateRoute path='/dashboard' component={Dashboard} />
               <PrivateRoute path='/profile' component={Profile} />
+              <PrivateRoute path='/upload' component={Upload} />
             </div>
           </Router>
         </AuthProvider>

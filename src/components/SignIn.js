@@ -31,13 +31,45 @@ function SignIn({history}) {
                             uidvalue: uidval,
                         })
                 })
+                .then(() => {
+                    var uidval = firebase.auth().currentUser.uid;
+                    firebase
+                    .firestore()
+                    .collection("Users")
+                    .doc(uidval)
+                    .collection("my papers")
+                    .doc("research paper 1")
+                    .set({
+                        authorFirst: "Jane",
+                        authorLast: "Doe",
+                        researchInstitution: "Texas A&M University, College Station",
+                        researchTypes: ['computer science', 'artificial intelligence', 'cloud computing'],
+                        researchReplicated: false,
+                        researchReplicatedCount: 0,
+                    })
+                })
+                .then(() => {
+                    var uidval = firebase.auth().currentUser.uid;
+                    firebase
+                    .firestore()
+                    .collection("Users")
+                    .doc(uidval)
+                    .collection("saved papers")
+                    .doc("research paper 1")
+                    .set({
+                        authorFirst: "John",
+                        authorLast: "Doe",
+                        researchInstitution: "Texas A&M University, College Station",
+                        researchTypes: ['biomedical sciences', 'computational biology', 'bioinformatics'],
+                        researchReplicated: true,
+                        researchReplicatedCount: 3,
+                    })
+                })
             history.push("/dashboard");        
         } catch(e) {
             console.log(e);
         }
     }, [history])
-    
-
     return(
         <div className="landingcontainerregister">
             <div className="card2">
@@ -57,7 +89,7 @@ function SignIn({history}) {
                         </label>
 
                         <label>
-                            <input name="first" type="first" placeholder="First name" />
+                            <input name="first" type="first" placeholder="First name" autoCapitalize={true} />
                         </label>
 
                         <label>

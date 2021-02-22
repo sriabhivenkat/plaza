@@ -37,6 +37,8 @@ const Profile = () => {
         main();
     }, [])
     if (errors.length>0) return <p>Error! {errors}</p>;
+
+    document.title=first+"'s Profile"
     return(
         <div className="profilecontainer">
             <div
@@ -50,6 +52,11 @@ const Profile = () => {
             <div className="background_img">
                 <Image src="profilebackground.png" />
             </div>
+
+           <div className="papers">
+            <h4>My Papers</h4>
+            
+           </div>
         </div>
     )
 }

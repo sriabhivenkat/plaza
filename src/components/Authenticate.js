@@ -48,7 +48,7 @@ const Authenticate = ({history}) => {
                         <Button variant="dark" type="submit">Log In!</Button>
                     </div>
                 </form>
-                <Button variant="danger" onClick={signInWithGoogle} className="google">Sign In with Google</Button>
+                <Button variant="danger" onClick={signInWithGoogle} className="google"><i class="fa fa-google"></i> Sign In with Google</Button>
             </div>
         </div>
     )
