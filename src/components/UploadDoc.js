@@ -8,39 +8,37 @@ import firebase from 'firebase/app';
 
 const UploadDoc = () => {
     const [selectedTags, setSelectedTags] = useState([]);
-    const [bims, setBims] = useState([]);
-    const [cs, setCS] = useState([]);
-    const [econ, setEcon] = useState([]);
-    const [education, setEducation] = useState([]);
-    const [other, setOther] = useState("");
+    var regularArray = [];
+    const [data, setData] = useState([]);
 
     useEffect(() => {
         const main = async() => {
             const refValBims = firebase.firestore().collection("Categories").doc('biomedical-sciences');
             const bimsDoc = await refValBims.get();
             const {bims} = bimsDoc.data();
-            setBims(bims);
+            regularArray.push(bims);
 
             const refValCS = firebase.firestore().collection("Categories").doc('computer-science');
             const csDoc = await refValCS.get();
             const {compsci} = csDoc.data();
-            setCS(compsci);
+            regularArray.push(compsci);
 
             const refValEcon = firebase.firestore().collection("Categories").doc('economics');
             const econDoc = await refValEcon.get();
             const {econ} = econDoc.data();
-            setEcon(econ);
+            regularArray.push(econ);
 
             const refValEducation = firebase.firestore().collection("Categories").doc('education');
             const educationDoc = await refValEducation.get();
             const {education} = educationDoc.data();
-            setEducation(education);
+            regularArray.push(education)
 
             const refValOther = firebase.firestore().collection("Categories").doc("other");
             const otherDoc = await refValOther.get();
             const {other} = otherDoc.data();
-            setOther(other); 
+            regularArray.push(other);
 
+            setData(regularArray);
         };
         main();
     }, [])
