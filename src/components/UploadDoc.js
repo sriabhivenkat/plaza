@@ -18,28 +18,28 @@ const UploadDoc = () => {
         const main = async() => {
             const refValBims = firebase.firestore().collection("Categories").doc('biomedical-sciences');
             const bimsDoc = await refValBims.get();
-            const {one} = bimsDoc.data();
-            setBims(one);
+            const {bims} = bimsDoc.data();
+            setBims(bims);
 
             const refValCS = firebase.firestore().collection("Categories").doc('computer-science');
             const csDoc = await refValCS.get();
-            const {one} = csDoc.data();
-            setCS(one);
+            const {compsci} = csDoc.data();
+            setCS(compsci);
 
             const refValEcon = firebase.firestore().collection("Categories").doc('economics');
             const econDoc = await refValEcon.get();
-            const {one} = econDoc.data();
-            setEcon(one);
+            const {econ} = econDoc.data();
+            setEcon(econ);
 
             const refValEducation = firebase.firestore().collection("Categories").doc('education');
             const educationDoc = await refValEducation.get();
-            const {one} = csDoc.data();
-            setEducation(one);
+            const {education} = educationDoc.data();
+            setEducation(education);
 
             const refValOther = firebase.firestore().collection("Categories").doc("other");
             const otherDoc = await refValOther.get();
-            const {one} = otherDoc.data();
-            setOther(one); 
+            const {other} = otherDoc.data();
+            setOther(other); 
 
         };
         main();
