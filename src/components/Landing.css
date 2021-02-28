@@ -8,7 +8,6 @@
   background-color: #f5f5f5;
   object-fit: contain;
   overflow-x: hidden;
-  font-family: "Kollektif-Bold";
   border-top: 0.5px solid lightgray;
   position: relative;
   background-image: url("../assets/background-landing.gif");
@@ -71,6 +70,7 @@
   margin-left: 10%;
   margin-right: 10%;
   color: gray;
+  font-size: "Inter";
 }
 .mainText {
   display: flex;
@@ -78,6 +78,7 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
+  font-family: "Inter";
 }
 
 .paperstuff {
@@ -92,6 +93,7 @@
   font-size: 45;
   text-align: "center";
   color: white;
+  font-family: "Inter";
 }
 
 .landingcontainer2 > h2 {

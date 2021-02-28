@@ -1,4 +1,4 @@
-import React, {useRef, useState, useEffect} from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './Profile.css';
 import firebase from 'firebase/app';
 import { useFilePicker } from "use-file-picker";
@@ -8,7 +8,7 @@ const Profile = () => {
     const [uploading, setUploading] = useState(false);
     const [files, errors, openFileSelector] = useFilePicker({
         multiple: false,
-        accept: ".png,.jpeg,.jpg" 
+        accept: ".png,.jpeg,.jpg"
     });
 
     const [first, setFirstName] = useState("");
@@ -17,17 +17,17 @@ const Profile = () => {
     const [email, setEmail] = useState("");
 
     useEffect(() => {
-            const main = async() => {
+        const main = async () => {
             const docget = firebase
                 .firestore()
                 .collection("Users")
                 .doc(firebase.auth().currentUser.uid);
-            
+
             const doc = await docget.get();
-            const {firstName} = doc.data();
-            const {lastName} = doc.data();
-            const {handleval} = doc.data();
-            const {emailval} = doc.data();
+            const { firstName } = doc.data();
+            const { lastName } = doc.data();
+            const { handleval } = doc.data();
+            const { emailval } = doc.data();
 
             setFirstName(firstName);
             setLastName(lastName);
@@ -36,27 +36,27 @@ const Profile = () => {
         };
         main();
     }, [])
-    if (errors.length>0) return <p>Error! {errors}</p>;
+    if (errors.length > 0) return <p>Error! {errors}</p>;
 
-    document.title=first+"'s Profile"
-    return(
+    document.title = first + "'s Profile"
+    return (
         <div className="profilecontainer">
             <div
                 onClick={() => openFileSelector()}
                 className="pfpcontainer"
             >
             </div>
-            <h3>{first+" "+last}</h3>
+            <h3>{first + " " + last}</h3>
             <p>@{handle}</p>
-            <p1>{email}</p1>
+            <p>{email}</p>
             <div className="background_img">
                 <Image src="profilebackground.png" />
             </div>
 
-           <div className="papers">
-            <h4>My Papers</h4>
-            
-           </div>
+            <div className="papers">
+                <h4>My Papers</h4>
+
+            </div>
         </div>
     )
 }
