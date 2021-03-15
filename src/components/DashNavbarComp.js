@@ -17,6 +17,7 @@ function DashNavbarComp() {
                     <Nav className="ml-auto">
                         <Nav.Link href='/dashboard'>Dashboard</Nav.Link>
                         <Nav.Link href="/upload">Upload</Nav.Link>
+                        <Nav.Link href="/search">Search</Nav.Link>
                         <Nav.Link href="/profile">My Profile</Nav.Link>
                         <Nav.Link onClick={signOut} className="linkStyling">Sign Out</Nav.Link>
                     </Nav>

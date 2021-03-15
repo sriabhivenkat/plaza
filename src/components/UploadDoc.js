@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react'
 import './UploadDoc.css'
 import Divider from '@material-ui/core/Divider';
 import Form from 'react-bootstrap/Form'
-import Chip from '@material-ui/core/Chip';
 import firebase from 'firebase/app';
 import NaturePeopleIcon from '@material-ui/icons/NaturePeople';
-
+import Chips from 'react-chips'
 
 const UploadDoc = () => {
     const [selectedTags, setSelectedTags] = useState([]);
@@ -52,12 +51,9 @@ const UploadDoc = () => {
         main();
     }, [])
 
-    function exists(array, value) {
-        for (var i = 0; i < array.length; i++) {
-            if (value == array[i]) {
-                console.log("suck my dick")
-            }
-        }
+    const changeData = (chips) => {
+        setSelectedTags(chips);
+        console.log(selectedTags);
     }
 
     return (
@@ -84,38 +80,11 @@ const UploadDoc = () => {
                     <p>Step 2</p>
                     <h3>Tag your paper</h3>
                     <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
-                        {data.map((i) => (
-                            <Chip
-                                size="large"
-                                icon={<NaturePeopleIcon />}
-                                label={i}
-                                onClick={() => {
-                                    if (selectedTags[selectedTags.length - 1] == i && selectedTags.length > 0) {
-                                        selectedTags.pop()
-                                    } else {
-                                        selectedTags.push(i)
-                                    }
-                                    console.log(selectedTags)
-                                }}
-                                onDelete={() => {
-                                    if (selectedTags)
-                                }}
-                                style={{ marginBottom: "4px", marginRight: "0.5%" }}
-                                color="primary"
-                            />
-                        ))}
-                    </div>
-                    <div style={{ display: "flex", flexDirection: "column", flexWrap: "wrap" }}>
-                        <h4 style={{ marginTop: "2%" }}>Selected Tags</h4>
-                        <div style={{ flexDirection: "row" }}>
-                            {selectedTags.map((j) => (
-                                <Chip
-                                    size="large"
-                                    label={j}
-                                    color="secondary"
-                                />
-                            ))}
-                        </div>
+                        <Chips 
+                            value={selectedTags}
+                            onChange={changeData}
+                            suggestions={data}
+                        />
                     </div>
                 </div>
             </div>

@@ -18,9 +18,11 @@
     "react-bootstrap": "^1.4.3",
     "react-chips": "^0.8.0",
     "react-dom": "^17.0.1",
+    "react-native-text-gradient": "^0.1.7",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
+    "typewriter-effect": "^2.17.0",
     "use-file-picker": "^0.2.1",
     "web-vitals": "^1.1.0"
   },
