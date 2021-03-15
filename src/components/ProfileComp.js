@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+ import React, { useRef, useState, useEffect } from 'react';
 import './Profile.css';
 import firebase from 'firebase/app';
 import { useFilePicker } from "use-file-picker";
