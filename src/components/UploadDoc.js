@@ -78,7 +78,7 @@ const UploadDoc = () => {
                 </div>
                 <div className="form">
                     <p>Step 2</p>
-                    <h3>Tag your paper</h3>
+                    <h3>Set keywords</h3>
                     <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
                         <Chips 
                             value={selectedTags}

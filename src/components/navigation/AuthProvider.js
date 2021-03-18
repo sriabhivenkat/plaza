@@ -22,8 +22,8 @@ export const AuthProvider = ({ children }) => {
 
   if(pending){
     return(
-      <div style={{height: "100%", width: "100%", background:"linear-gradient(red, blue)", display: "flex", alignItems: "center", justifyContent: "center"}}>
-        <h1>Loading</h1>
+      <div style={{height: "100vh", width: "100%", display: "flex", alignItems: "center", justifyContent: "center", flexDirection:"column", backgroundColor: "#171E24"}}>
+        <h1 style={{color: "#ECDFCF"}}>Loading</h1>
       </div> 
     )
   }
