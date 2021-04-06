@@ -6,6 +6,7 @@ import UploadDoc from '../UploadDoc'
 
 
 function Profile() {
+    document.title="Upload Papers"
     return(
         <>
             <DashNavbarComp />

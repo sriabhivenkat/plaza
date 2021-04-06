@@ -1,6 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
-
+import 'firebase/storage';
 
 
 
@@ -24,6 +24,6 @@ provider.setCustomParameters({prompt: 'select_account'});
 
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 export const signOut = () => auth.signOut();
-
+export const storage = firebase.storage()
 
 export default firebase;
