@@ -43,3 +43,12 @@
   color: gray;
   margin-bottom: -0.25%;
 }
+
+.form > h5 {
+  color: slategray;
+}
+
+.textArea {
+  display: flex;
+  width: "50%";
+}
