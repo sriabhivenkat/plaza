@@ -39,7 +39,7 @@ function Landing() {
                                 .typeString('<h1 style="color: #333232;">distributed computing</h1>')
                                 .pauseFor(18.75)
                                 .deleteChars(21)
-                                .typeString('<h1 style="color: #333232; font-size: 50px; font-weight: bold;">you.</h1>')
+                                .typeString('<h1 style="color: #333232; font-size: 50px; font-weight: bold;">anything.</h1>')
                                 .pauseFor(300)
                                 .start();
                             }}

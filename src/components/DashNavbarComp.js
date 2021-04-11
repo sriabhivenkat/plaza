@@ -4,15 +4,19 @@ import Navbar from 'react-bootstrap/Navbar'
 import './DashNavbarComp.css'
 import {signOut} from '../firebase/firebase.utils';
 import { Nav } from 'react-bootstrap';
-
+import Image from 'react-bootstrap/Image'
+import faraday from '../assets/faraday.jpeg';
 
 
 function DashNavbarComp() {
     return(
         <div className="m-auto">
                 <Navbar bg="dark" variant="dark" className="m-auto">
-                    <Navbar.Brand href="/" style={{fontWeight: 500}}>
-                        Project Aurora
+                    <Navbar.Brand href="/" className="brand">
+                        <Image 
+                            src={faraday}
+                            style={{height:50, width: 75}}
+                        />
                     </Navbar.Brand>
                     <Nav className="ml-auto">
                         <Nav.Link href='/dashboard'>Dashboard</Nav.Link>

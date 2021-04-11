@@ -1,5 +1,5 @@
 .uploadcontainer {
-  height: 100vh;
+  height: 140vh;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -51,4 +51,14 @@
 .textArea {
   display: flex;
   width: "50%";
+}
+
+.uploadButton {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+  margin-top: 5%;
+  width: 75%;
+  align-items: center;
+  justify-content: center;
 }

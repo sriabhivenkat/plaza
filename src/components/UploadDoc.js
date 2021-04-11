@@ -5,10 +5,8 @@ import Form from 'react-bootstrap/Form'
 import firebase from 'firebase/app';
 import NaturePeopleIcon from '@material-ui/icons/NaturePeople';
 import Chips from 'react-chips'
-import FileUploader from 'react-firebase-file-uploader';
-import {TextArea} from 'semantic-ui-react';
 import {AuthContext} from '../components/navigation/AuthProvider.js'
-
+import Button from 'react-bootstrap/Button'
 
 const UploadDoc = ({history}) => {
     const [selectedTags, setSelectedTags] = useState([]);
@@ -17,6 +15,7 @@ const UploadDoc = ({history}) => {
     const [data, setData] = useState([]);
     const [abstract, setAbstract] = useState("");
     const [filePath, setFilePath] = useState("");
+    const [title, setTitle] = useState("");
     const {currentUser} = useContext(AuthContext);
     const [urlpath, setUrlPath] = useState('');
 
@@ -107,20 +106,24 @@ const UploadDoc = ({history}) => {
     return (
         <div className="uploadcontainer">
             <div className="title">
-                <h1>Upload a Paper</h1>
+                <h1 style={{color:"#ecdfcf"}}>Upload a Paper</h1>
             </div>
             <Divider orientation="vertical" flexItem />
             <div className="uploadstuff">
-                <h1>Let's get started.</h1>
-                <form onSubmit={onChangeFile}>
                     <div className="form">
                         <p>Step 1</p>
                         <h3>Upload a file</h3>
-                        <input type="file" name="file"/>
+                        <input type="file" name="file" />
                     </div>
                     <div className="form">
                         <p>Step 2</p>
                         <h3>Title your paper</h3>
+                        <input 
+                            type="text" 
+                            style={{width: "80%"}}
+                            placeholder="Add a title"
+                        >
+                        </input>
                     </div>
                     <div className="form">
                         <p>Step 3</p>
@@ -146,7 +149,22 @@ const UploadDoc = ({history}) => {
                         >
                         </textarea>
                     </div>
-                </form>
+                    <div className="form">
+                        <p>Step 5</p>
+                        <h3>ELI5</h3>
+                        <h5>Explain it to me like I'm five.</h5>
+                        <textarea 
+                            placeholder="This can just be a super distilled, simple version of the main points your research paper hits. Remember, five-year-olds generally do not have a high attention span!" 
+                            style={{width: "80%"}}
+                            name="eli5"
+                            type="eli5"
+                            onChange={(titlestring) => setTitle(titlestring)}
+                        >
+                        </textarea>
+                    </div>
+                    <div className="uploadButton">
+                        <Button variant="dark" onClick={() => {}} className="uploadButton">Go live</Button>
+                    </div>
             </div>
         </div>
     )

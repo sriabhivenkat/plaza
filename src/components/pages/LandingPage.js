@@ -4,7 +4,7 @@ import NavbarComp from '../NavbarComp.js';
 import ReactDOM from 'react-dom';
 
 function LandingPage() {
-    document.title="Project Aurora"
+    document.title="Faraday"
     return(
         <>
             <NavbarComp />
