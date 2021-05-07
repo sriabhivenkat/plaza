@@ -26,4 +26,4 @@ export const signInWithGoogle = () => auth.signInWithPopup(provider);
 export const signOut = () => auth.signOut();
 export const storage = firebase.storage()
 
-export default firebase;
+export {firebase, storage as default};

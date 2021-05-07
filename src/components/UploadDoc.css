@@ -62,3 +62,17 @@
   align-items: center;
   justify-content: center;
 }
+
+.oncePressed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+  height: 100vh
+}
+
+.oncePressed > h1 {
+  color: jetblack;
+  top: 300px;
+}

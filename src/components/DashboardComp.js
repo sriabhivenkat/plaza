@@ -33,7 +33,7 @@ const DashboardComp = () => {
     return(
         <div className="mainDashContainer">
             <div className="dashcontainer">
-                <h4>Welcome back, {first}.</h4>
+                <h4>Welcome to Plaza, {first}.</h4>
             </div>
             <div className="dashcontainer2">
                 <CardDeck>

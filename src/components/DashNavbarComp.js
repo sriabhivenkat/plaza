@@ -17,6 +17,7 @@ function DashNavbarComp() {
                             src={faraday}
                             style={{height:50, width: 75}}
                         />
+                        Plaza
                     </Navbar.Brand>
                     <Nav className="ml-auto">
                         <Nav.Link href='/dashboard'>Dashboard</Nav.Link>
