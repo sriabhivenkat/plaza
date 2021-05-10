@@ -130,7 +130,7 @@ const UploadDoc = ({history}) => {
                             .add({
                                 title: text.value,
                                 abstract: abstract.value,
-                                //easydesc: eli5.value,
+                                easydesc: eli5.value,
                                 pdflink: pdfUrl,
                                 tags: selectedTags,
                                 institution: institutionval
@@ -143,7 +143,7 @@ const UploadDoc = ({history}) => {
                                 .set({
                                     title: text.value,
                                     abstract: abstract.value,
-                                    //easydesc: eli5.value,
+                                    easydesc: eli5.value,
                                     pdflink: pdfUrl,
                                     tags: selectedTags,
                                     institution: institutionval
@@ -209,20 +209,20 @@ const UploadDoc = ({history}) => {
                             >
                             </textarea>
                         </div>
-                        {/* <div className="form">
+                        <div className="form">
                             <p>Step 5</p>
                             <h3>ELI5</h3>
                             <h5>Explain it to me like I'm five.</h5>
                             <textarea 
                                 placeholder="This can just be a super distilled, simple version of the main points your research paper hits. Remember, five-year-olds generally do not have a high attention span!" 
                                 style={{width: "80%"}}
-                                id="abstract"
+                                id="eli5"
                                 name="eli5"
                                 type="eli5"
                                 onChange={(titlestring) => setTitle(titlestring)}
                             >
                             </textarea>
-                        </div> */}
+                        </div>
                         <div className="uploadButton">
                             <Button variant="dark" type="submit" className="uploadButton">Go live</Button>
                         </div>
