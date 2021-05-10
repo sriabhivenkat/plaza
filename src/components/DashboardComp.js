@@ -59,7 +59,6 @@ const DashboardComp = () => {
                     </Card>
                 </CardDeck>
             </div>
-            
         </div>
     );
 }

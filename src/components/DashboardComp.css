@@ -18,7 +18,7 @@
 }
 
 .dashcontainer2 {
-  height: 75vh;
+  height: 72.75vh;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -78,6 +78,10 @@
   font-weight: 450;
 }
 
+.mainDashContainer {
+  overflow-y: hidden;
+}
+
 @media only screen and (max-width: 768px) {
   .mainDashContainer {
     width: 130%;
@@ -94,7 +98,7 @@
     overflow-x: hidden;
     border-top: 1px solid darkgray;
   }
-  
+
   .dashcontainer2 {
     height: 111.8vh;
     width: 100%;

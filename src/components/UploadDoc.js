@@ -120,43 +120,38 @@ const UploadDoc = ({history}) => {
                 storage.ref('paperFiles').child(pdfFile.name).getDownloadURL()
                     .then(pdfUrl1 => {
                         setPdfUrl(prevObject => ({...prevObject, imgUrl: pdfUrl1}))
-                    })
-                    .then(() => {
-                        firebase
-                            .firestore()
-                            .collection("Users")
-                            .doc(currentUser.uid)
-                            .collection("my papers")
-                            .add({
-                                title: text.value,
-                                abstract: abstract.value,
-                                easydesc: eli5.value,
-                                pdflink: pdfUrl,
-                                tags: selectedTags,
-                                institution: institutionval
-                            })
-                        .then(() => {
-                            firebase
-                                .firestore()
-                                .collection("Papers")
-                                .doc(currentUser.uid)
-                                .set({
-                                    title: text.value,
-                                    abstract: abstract.value,
-                                    easydesc: eli5.value,
-                                    pdflink: pdfUrl,
-                                    tags: selectedTags,
-                                    institution: institutionval
-                                })
-                        })
-                        .then(() => {
-                            setSubmitButtonPressed(true);
-                        })
-                        console.log("document upload complete")
-                    })
-            }, () => {
+                        console.log(pdfUrl)
+                })
             },
         )
+        firebase
+            .firestore()
+            .collection("Users")
+            .doc(currentUser.uid)
+            .collection("my papers")
+            .add({
+                title: text.value,
+                abstract: abstract.value,
+                easydesc: eli5.value,
+                pdfUrl,
+                tags: selectedTags,
+                institution: institutionval
+            })
+            .then(console.log("pls work im begging you"))
+        firebase
+            .firestore()
+            .collection("Papers")
+            .doc(currentUser.uid)
+            .set({
+                title: text.value,
+                abstract: abstract.value,
+                easydesc: eli5.value,
+                pdfUrl,
+                tags: selectedTags,
+                institution: institutionval,
+            })
+            .then(console.log("pls pls PLS work im beggING YOU"))
+            .then(() => {setSubmitButtonPressed(true)});
     }
     return (
         <div className="uploadcontainer">
@@ -213,15 +208,15 @@ const UploadDoc = ({history}) => {
                             <p>Step 5</p>
                             <h3>ELI5</h3>
                             <h5>Explain it to me like I'm five.</h5>
-                            <textarea 
-                                placeholder="This can just be a super distilled, simple version of the main points your research paper hits. Remember, five-year-olds generally do not have a high attention span!" 
+                            <input
+                                placeholder="This can just be a super distilled, simple version of the main points your research paper hits." 
                                 style={{width: "80%"}}
                                 id="eli5"
                                 name="eli5"
                                 type="eli5"
                                 onChange={(titlestring) => setTitle(titlestring)}
                             >
-                            </textarea>
+                            </input>
                         </div>
                         <div className="uploadButton">
                             <Button variant="dark" type="submit" className="uploadButton">Go live</Button>

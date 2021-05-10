@@ -4,7 +4,7 @@ import NavbarComp from '../NavbarComp.js';
 import ReactDOM from 'react-dom';
 
 function LandingPage() {
-    document.title="Faraday"
+    document.title="Plaza"
     return(
         <>
             <NavbarComp />
