@@ -1,8 +1,11 @@
- import React, { useRef, useState, useEffect } from 'react';
+ import React, { useRef, useState, useEffect, useContext } from 'react';
 import './Profile.css';
 import firebase from 'firebase/app';
 import { useFilePicker } from "use-file-picker";
 import Image from 'react-bootstrap/Image'
+import {AuthContext} from '../components/navigation/AuthProvider.js'
+
+
 
 const Profile = () => {
     const [uploading, setUploading] = useState(false);
@@ -15,14 +18,13 @@ const Profile = () => {
     const [last, setLastName] = useState("");
     const [handle, setHandle] = useState("");
     const [email, setEmail] = useState("");
-
+    const {currentUser} = useContext(AuthContext);
     useEffect(() => {
         const main = async () => {
             const docget = firebase
                 .firestore()
                 .collection("Users")
                 .doc(firebase.auth().currentUser.uid);
-
             const doc = await docget.get();
             const { firstName } = doc.data();
             const { lastName } = doc.data();
@@ -33,6 +35,14 @@ const Profile = () => {
             setLastName(lastName);
             setHandle(handleval);
             setEmail(emailval);
+
+            const paperget = firebase
+                .firestore()
+                .collection("Users")
+                .doc(currentUser.uid)
+                .collection("my papers");
+            const paperdoc = await paperget.get();
+            console.log("this is paperdoc: ", paperdoc.docs);
         };
         main();
     }, [])
@@ -49,10 +59,6 @@ const Profile = () => {
             <h3>{first + " " + last}</h3>
             <p>@{handle}</p>
             <p>{email}</p>
-            <div className="background_img">
-                <Image src="profilebackground.png" />
-            </div>
-
             <div className="papers">
                 <h4>My Papers</h4>
 

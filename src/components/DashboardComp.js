@@ -48,13 +48,13 @@ const DashboardComp = () => {
                         <Card.Body>
                             <Card.Title style={{fontSize: "35px", color: "#ECDFCF"}} numberOfLines={1}>Past Reads</Card.Title>
                             <Card.Subtitle style={{color: "#ECDFCF"}}>Refer to a past paper.</Card.Subtitle>
-                            <Card.Link href="/curated" style={{position: "absolute", bottom: "10%", left: "40%", color: "#ECDFCF"}}>Teleport!</Card.Link>
+                            <Card.Link href="/pastreads" style={{position: "absolute", bottom: "10%", left: "40%", color: "#ECDFCF"}}>Teleport!</Card.Link>
                         </Card.Body>
                     </Card>
                     <Card style={{ width: "23rem", height: "25rem",marginRight: "5%", overflowY: "none", backgroundColor: "#171e24", display: "flex", textAlign: "center", borderRadius: "25px", boxShadow: "0 0 5px 5px lightgray", position: "relative"}}>
                         <Card.Body>
                             <Card.Title style={{fontSize: "35px", color: "#ECDFCF"}} numberOfLines={1}>Aurora Journal Featured Articles</Card.Title>
-                            <Card.Link href="/curated" style={{position: "absolute", bottom: "10%", left: "40%", color: "#ECDFCF"}}>Teleport!</Card.Link>
+                            <Card.Link href="/featured" style={{position: "absolute", bottom: "10%", left: "40%", color: "#ECDFCF"}}>Teleport!</Card.Link>
                         </Card.Body>
                     </Card>
                 </CardDeck>

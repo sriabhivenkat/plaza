@@ -69,10 +69,46 @@
   align-items: center;
   justify-content: center;
   width: 65%;
-  height: 100vh
+  height: 100vh;
 }
 
 .oncePressed > h1 {
   color: jetblack;
   top: 300px;
+}
+
+@media only screen and (max-width: 768px) {
+  .uploadcontainer {
+    height: 140vh;
+    width: 130%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    object-fit: contain;
+    overflow-x: hidden;
+  }
+  .title {
+    display: flex;
+    width: 100%;
+    height: 20vh;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../assets/background-upload.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
+  .uploadstuff {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    margin-top: 2.5%;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+    margin-top: 5%;
+  }
 }

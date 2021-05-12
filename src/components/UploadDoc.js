@@ -149,6 +149,7 @@ const UploadDoc = ({history}) => {
                 pdfUrl,
                 tags: selectedTags,
                 institution: institutionval,
+                author: first+" "+last
             })
             .then(console.log("pls pls PLS work im beggING YOU"))
             .then(() => {setSubmitButtonPressed(true)});
