@@ -38,7 +38,7 @@ const SearchPapers = () => {
                                 type="keywordsearch"
                                 placeholder="Enter keywords to find papers"
                                 size="100"
-                                onChange={(queryText) => setQueryVal(queryText)}
+                                onChange={queryText => setQueryVal(queryText.target.value)}
                                 value={queryval}
                             />
                         </label>
@@ -47,10 +47,9 @@ const SearchPapers = () => {
             </div>
             <div className="searchcontainer2">
                 {data.map((item) => {
-                    <CardDeck>
-                        
-                    </CardDeck>
+                    <h1>hello</h1>
                 })}
+                <h1>hello</h1>
             </div>
         </>
     )
