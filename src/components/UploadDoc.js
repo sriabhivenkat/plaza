@@ -17,6 +17,7 @@ const UploadDoc = ({history}) => {
     const [data, setData] = useState([]);
     const [abstract, setAbstract] = useState("");
     const [title, setTitle] = useState("");
+    const [titleText, setTitleText] = useState("");
     const {currentUser} = useContext(AuthContext);
 
     //user information state variables
@@ -31,7 +32,7 @@ const UploadDoc = ({history}) => {
 
     const allInputs = {imgUrl: ''}
     const [pdfFile, setPdfFile] = useState("");
-    const [pdfUrl, setPdfUrl] = useState(allInputs);
+    const [pdfUrl, setPdfUrl] = useState("");
 
     useEffect(() => {
         const main = async () => {
@@ -83,6 +84,7 @@ const UploadDoc = ({history}) => {
         setSelectedTags(chips);
         console.log(selectedTags);
     }
+    
 
     /*\
     const uploadForMe = useCallback(
@@ -118,42 +120,42 @@ const UploadDoc = ({history}) => {
                 console.log(err)
             }, () => {
                 storage.ref('paperFiles').child(pdfFile.name).getDownloadURL()
-                    .then(pdfUrl1 => {
-                        setPdfUrl(prevObject => ({...prevObject, imgUrl: pdfUrl1}))
-                        console.log(pdfUrl)
-                })
+                    .then((pdfUrl1) => {
+                        firebase
+                        .firestore()
+                        .collection("Users")
+                        .doc(currentUser.uid)
+                        .collection("my papers")
+                        .add({
+                            title: text.value,
+                            abstract: abstract.value,
+                            easydesc: eli5.value,
+                            pdfUrl1,
+                            tags: selectedTags,
+                            institution: institutionval
+                        })
+                        .then(() => {
+                            firebase
+                                .firestore()
+                                .collection("Papers")
+                                .add({
+                                    title: text.value,
+                                    abstract: abstract.value,
+                                    easydesc: eli5.value,
+                                    pdfUrl1,
+                                    tags: selectedTags,
+                                    institution: institutionval,
+                                    author: first+" "+last
+                                })
+                                .then(() => {setSubmitButtonPressed(true)})
+                                .catch((e) => console.log(e))
+                        })
+                        .catch((e) => console.log(e))
+                    })
             },
         )
-        firebase
-            .firestore()
-            .collection("Users")
-            .doc(currentUser.uid)
-            .collection("my papers")
-            .add({
-                title: text.value,
-                abstract: abstract.value,
-                easydesc: eli5.value,
-                pdfUrl,
-                tags: selectedTags,
-                institution: institutionval
-            })
-            .then(console.log("pls work im begging you"))
-        firebase
-            .firestore()
-            .collection("Papers")
-            .doc(currentUser.uid)
-            .set({
-                title: text.value,
-                abstract: abstract.value,
-                easydesc: eli5.value,
-                pdfUrl,
-                tags: selectedTags,
-                institution: institutionval,
-                author: first+" "+last
-            })
-            .then(console.log("pls pls PLS work im beggING YOU"))
-            .then(() => {setSubmitButtonPressed(true)});
     }
+
     return (
         <div className="uploadcontainer">
             <div className="title">
@@ -176,6 +178,7 @@ const UploadDoc = ({history}) => {
                                 name="text"
                                 id="text" 
                                 style={{width: "80%"}}
+                                onChange={(titleval) => {setTitleText(titleval)}}
                                 placeholder="Add a title"
                             >
                             </input>

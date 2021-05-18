@@ -3,11 +3,12 @@ import firebase from 'firebase/app';
 import './Search.css';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
-
+import profilebackground from '../assets/profilebackground.png'
+import { Chip } from '@material-ui/core';
 
 const SearchPapers = () => {
     const [queryval, setQueryVal] = useState("")
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(["1"]);
 
     useEffect(() => {
         if (queryval.length > 1) {
@@ -19,11 +20,13 @@ const SearchPapers = () => {
                 .get()
                 .then((res) => {
                     const results = res.docs.map((x) => x.data());
+                    console.log(results)
                     setData(results);
+                    console.log("Data is:",data)
                 })
                 .catch((err) => alert(err));
         } else {
-            setData([]);
+            setData(['']);
         }
     }, [queryval])
     return (
@@ -46,10 +49,20 @@ const SearchPapers = () => {
                 </form>
             </div>
             <div className="searchcontainer2">
-                {data.map((item) => {
-                    <h1>hello</h1>
-                })}
-                <h1>hello</h1>
+                <CardDeck>
+                {data.map((item) => (
+                        <Card style={{maxHeight: 400, maxWidth: 700}}>
+                            <Card.Img variant="top" src={profilebackground} style={{height: 100, width: 100}}/>
+                            <Card.Body>
+                                <Card.Title>{item.title}</Card.Title>
+                                <Card.Subtitle>{item.author+", "+item.institution}</Card.Subtitle>
+                                {/* {data.tags.map(item1) = > (
+                                    <Chip />
+                                )} */}
+                            </Card.Body>
+                        </Card>
+                ))}
+                </CardDeck>
             </div>
         </>
     )
