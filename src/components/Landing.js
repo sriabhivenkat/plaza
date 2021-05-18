@@ -66,7 +66,7 @@ function Landing() {
             </div>
             <div className="landingcontainer2">
                 <h2>Our Mission</h2>
-                <h1>Our mission is to make the world more <span class="bluebell">knowledgeable</span> through the easy access of <span class="vermillion">cutting-edge</span> research.</h1>
+                <h1>Our mission is to make the world more <span class="bluebell">knowledgeable</span> through the easy access to <span class="vermillion">cutting-edge</span> research.</h1>
                 <Button variant="outline-dark" size="lg" href="https://www.kas-tech.com/about" style={{fontFamily: "Inter", marginTop: "2%"}}>Meet the Team</Button>{' '}
             </div>
             <div className="landingcontainer3">
