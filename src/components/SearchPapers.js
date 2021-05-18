@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import profilebackground from '../assets/profilebackground.png'
 import { Chip } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const SearchPapers = () => {
     const [queryval, setQueryVal] = useState("")
@@ -26,7 +27,7 @@ const SearchPapers = () => {
                 })
                 .catch((err) => alert(err));
         } else {
-            setData(['']);
+            setData(['1']);
         }
     }, [queryval])
     return (
@@ -49,20 +50,32 @@ const SearchPapers = () => {
                 </form>
             </div>
             <div className="searchcontainer2">
-                <CardDeck>
-                {data.map((item) => (
-                        <Card style={{maxHeight: 400, maxWidth: 700}}>
-                            <Card.Img variant="top" src={profilebackground} style={{height: 100, width: 100}}/>
-                            <Card.Body>
-                                <Card.Title>{item.title}</Card.Title>
-                                <Card.Subtitle>{item.author+", "+item.institution}</Card.Subtitle>
-                                {/* {data.tags.map(item1) = > (
-                                    <Chip />
-                                )} */}
-                            </Card.Body>
-                        </Card>
-                ))}
-                </CardDeck>
+                {data[0]!="1" &&
+                <div>
+                    {data.map((item) => {
+                        return(
+                            <CardDeck>
+                                {/* <Link
+                                    to={{
+                                        pathname: `/${item.id}`
+                                    }}
+                                > */}
+                                    <Card style={{maxHeight: 600, maxWidth: 400}} onClick={() => {
+                                        window.location.href = `/${item.id}`
+                                    }}>
+                                        <Card.Img variant="top" src={profilebackground} style={{height: 100, width: 100, left: 20}}/>
+                                        <Card.Body>
+                                            <Card.Title>{item.title}</Card.Title>
+                                            <Card.Subtitle>{item.author+", "+item.institution}</Card.Subtitle>
+                                            <Card.Text>{item.easydesc}</Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                {/* </Link> */}
+                            </CardDeck>
+                        )
+                    })}
+                </div>
+                }
             </div>
         </>
     )
