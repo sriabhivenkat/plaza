@@ -16,6 +16,9 @@
   border-bottom: black;
 }
 
+#cardStyling:hover {
+  background-color: #f3efee;
+}
 .searchcontainer2 {
   height: 50rem;
   border-width: 2;

@@ -20,7 +20,7 @@ const SearchPapers = () => {
                 .where("title", "<=", queryval + "\uf8ff")
                 .get()
                 .then((res) => {
-                    const results = res.docs.map((x) => x.data());
+                    const results = res.docs.map((x) => ({id: x.id, ...x.data()}));
                     console.log(results)
                     setData(results);
                     console.log("Data is:",data)
@@ -60,10 +60,13 @@ const SearchPapers = () => {
                                         pathname: `/${item.id}`
                                     }}
                                 > */}
-                                    <Card style={{maxHeight: 600, maxWidth: 400}} onClick={() => {
-                                        window.location.href = `/${item.id}`
-                                    }}>
-                                        <Card.Img variant="top" src={profilebackground} style={{height: 100, width: 100, left: 20}}/>
+                                    <Card 
+                                        style={{height: 300, width: 400}} 
+                                        onClick={() => {
+                                            window.location.href = `/${item.id}`
+                                        }}
+                                        id="cardStyling"
+                                    >
                                         <Card.Body>
                                             <Card.Title>{item.title}</Card.Title>
                                             <Card.Subtitle>{item.author+", "+item.institution}</Card.Subtitle>
