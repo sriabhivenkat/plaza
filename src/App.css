@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Inter:regular,bold,italic&subset=latin,latin-ext');
+@import url("https://fonts.googleapis.com/css?family=Inter:regular,bold,italic&subset=latin,latin-ext");
 
 * {
   box-sizing: border-box;
@@ -7,7 +7,5 @@
 }
 
 body {
-  font-family: 'Inter';
-  width: 100vw;
-  overflow-x: hidden;
+  font-family: "Inter";
 }

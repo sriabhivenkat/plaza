@@ -9,8 +9,8 @@ import { AuthProvider } from './components/navigation/AuthProvider';
 import PrivateRoute from './components/navigation/PrivateRoute.js';
 import Profile from './components/pages/Profile';
 import Upload from './components/pages/Upload';
-import firebase from 'firebase/app';
 import Search from './components/pages/Search';
+import PaperPageComp from './components/PaperPageComp.js'
 
 
 
@@ -30,14 +30,12 @@ function App() {
               <Route path='/' exact component={LandingPage} />
               <Route path='/login' component={Login} />
               <Route path='/register' component={Register} />
-              <PrivateRoute path='/dashboard' component={Dashboard} />
-              <PrivateRoute path='/profile' component={Profile} />
-              <PrivateRoute path='/upload' component={Upload} />
-              <PrivateRoute path='/search' component={Search} />
-
-
               <Switch>
-                <Route path="/:id" children={<Child />} />
+                <PrivateRoute path='/dashboard' component={Dashboard} />
+                <PrivateRoute path='/profile' component={Profile} />
+                <PrivateRoute path='/upload' component={Upload} />
+                <PrivateRoute path='/search' component={Search} />
+                <Route path="/:id" exact={true} children={<Child />} />
               </Switch>
             </div>
           </Router>
@@ -48,38 +46,11 @@ function App() {
 export default App;
 
 function Child() {
-  const [pdf, setPdf] = useState("");
-  const [tags, setTags] = useState([]);
-  const [title, setTitle] = useState("");
-  const [institution, setInstitution] = useState("");
-  const [author, setAuthor] = useState("");
-  const [abstract, setAbstract] = useState("");
-  const [eli5, setEli5] = useState("");
+
   let {id} = useParams();
-  useEffect(() => {
-    const main = async() => {
-      const paperData = 
-        firebase
-          .firestore()
-          .collection("Papers")
-          .doc(id);
-      const paperDoc = 
-        await paperData
-          .get()
-      const {pdfUrl1, tags, title, institution, author, abstract, easydesc } = paperDoc.data()
-      setPdf(pdfUrl1);
-      setTags(tags);
-      setTitle(title);
-      setInstitution(institution);
-      setAuthor(author);
-      setAbstract(abstract)
-      setEli5(easydesc);
-    };
-    main();
-  }, [])
   return(
     <>
-    
+      <PaperPageComp  id={id}/>
     </>
   );
 }
