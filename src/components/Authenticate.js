@@ -34,18 +34,42 @@ const Authenticate = ({history}) => {
 
     return(
         <div className="landingcontainerlogin">
-            <div className="card">
-                <h1 style={{textAlign: "center"}}>Log In</h1>
-                <form onSubmit={loginForMe}>
-                    <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+            <div className="potatocard" style={{backgroundColor: "#171e24"}}>
+                <h1 style={{textAlign: "center", color: "#ECDFCF", fontSize: 72}}>Log In</h1>
+            </div>
+            <div className="potatocard" style={{backgroundColor: "#171e24"}}>
+                <form onSubmit={loginForMe} style={{width: "100%"}}>
+                    <div style={{display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: "#171e24"}}>
                         <label>
-                            <input name="email" type="email" placeholder="Email" />
+                            <input 
+                                name="email" 
+                                type="email" 
+                                placeholder="Email" 
+                                style={{
+                                    borderRadius: 25,
+                                    paddingTop: 10,
+                                    paddingLeft: 10,
+                                    paddingBottom: 10,
+                                    width: 500
+                                }}
+                            />
                         </label>
 
                         <label>
-                            <input name="password" type="password" placeholder="Password" />
+                            <input 
+                                name="password" 
+                                type="password" 
+                                placeholder="Password" 
+                                style={{
+                                    borderRadius: 25,
+                                    paddingTop: 10,
+                                    paddingLeft: 10,
+                                    paddingBottom: 10,
+                                    width: 500
+                                }}
+                            />
                         </label>
-                        <Button variant="dark" type="submit">Log In!</Button>
+                        <Button type="submit" style={{marginTop: 20, width: 250, height: 50, backgroundColor: "#ECDFCF", color: "#171e24"}}>Log In!</Button>
                     </div>
                 </form>
                 <Button variant="danger" onClick={signInWithGoogle} className="google"><i class="fa fa-google"></i> Sign In with Google</Button>

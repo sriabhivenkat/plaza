@@ -27,15 +27,15 @@ function App() {
         <AuthProvider>
           <Router>
             <div>
-              <Route path='/' exact component={LandingPage} />
-              <Route path='/login' component={Login} />
-              <Route path='/register' component={Register} />
               <Switch>
+                <Route path='/' exact component={LandingPage} />
+                <Route path='/login' component={Login} />
+                <Route path='/register' component={Register} />
                 <PrivateRoute path='/dashboard' component={Dashboard} />
                 <PrivateRoute path='/profile' component={Profile} />
                 <PrivateRoute path='/upload' component={Upload} />
                 <PrivateRoute path='/search' component={Search} />
-                <Route path="/:id" exact={true} children={<Child />} />
+                <PrivateRoute path="/:id" exact={true} children={<Child />} />
               </Switch>
             </div>
           </Router>

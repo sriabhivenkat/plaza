@@ -44,6 +44,10 @@ const SearchPapers = () => {
                                 size="100"
                                 onChange={queryText => setQueryVal(queryText.target.value)}
                                 value={queryval}
+                                style={{
+                                    borderRadius: 10,
+                                    padding: 10
+                                }}
                             />
                         </label>
                     </div>
@@ -61,16 +65,34 @@ const SearchPapers = () => {
                                     }}
                                 > */}
                                     <Card 
-                                        style={{height: 300, width: 400}} 
+                                        style={{height: 300, width: 400, backgroundColor: "#171e24", borderRadius: 25}} 
                                         onClick={() => {
                                             window.location.href = `/${item.id}`
                                         }}
                                         id="cardStyling"
                                     >
                                         <Card.Body>
-                                            <Card.Title>{item.title}</Card.Title>
-                                            <Card.Subtitle>{item.author+", "+item.institution}</Card.Subtitle>
-                                            <Card.Text>{item.easydesc}</Card.Text>
+                                            <Card.Title style={{color: "#ECDFCF"}}>{item.title}</Card.Title>
+                                            <Card.Subtitle style={{color: "#ECDFCF"}}>{item.author+", "+item.institution}</Card.Subtitle>
+                                            {item.easydesc!="" &&
+                                                <Card.Text style={{color: "#ECDFCF"}}>{item.easydesc}</Card.Text>
+                                            }
+                                            <div className="chips">
+                                                {item.tags.map((x) => (
+                                                    <Chip 
+                                                        size="large"
+                                                        label={x}
+                                                        style={{
+                                                            marginRight: 5, 
+                                                            backgroundColor: "#ECDFCF", 
+                                                            marginBottom: 5,
+                                                        }}
+                                                    />
+                                                ))}
+                                            </div>
+                                            {/* {item.easydesc==="" &&
+                                                <Card.Text>suck my dick</Card.Text>
+                                            } */}
                                         </Card.Body>
                                     </Card>
                                 {/* </Link> */}

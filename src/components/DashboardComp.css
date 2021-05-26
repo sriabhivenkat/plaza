@@ -1,5 +1,5 @@
 .dashcontainer {
-  height: 19vh;
+  height: 12vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -9,6 +9,7 @@
   object-fit: contain;
   overflow-x: hidden;
   border-top: 1px solid darkgray;
+  overflow-y: hidden;
 }
 
 .dashcontainer > h4 {
@@ -18,7 +19,7 @@
 }
 
 .dashcontainer2 {
-  height: 72.75vh;
+  height: 79vh;
   width: 100%;
   display: flex;
   flex-direction: row;

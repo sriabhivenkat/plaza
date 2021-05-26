@@ -15,9 +15,22 @@
   border-radius: 25px;
   border-bottom: black;
 }
-
+.cardStyling {
+  display: flex;
+  height: 300;
+  width: 400;
+  background-color: #171e24;
+  border-radius: 25;
+}
 #cardStyling:hover {
-  background-color: #f3efee;
+  background-color: white;
+  cursor: pointer;
+}
+.chips {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 10px;
 }
 .searchcontainer2 {
   height: 50rem;
