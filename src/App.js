@@ -11,6 +11,7 @@ import Profile from './components/pages/Profile';
 import Upload from './components/pages/Upload';
 import Search from './components/pages/Search';
 import PaperPageComp from './components/PaperPageComp.js'
+import PaperAuthorPage from './components/PaperAuthorPage.js'
 
 
 
@@ -36,6 +37,7 @@ function App() {
                 <PrivateRoute path='/upload' component={Upload} />
                 <PrivateRoute path='/search' component={Search} />
                 <PrivateRoute path="/:id" exact={true} children={<Child />} />
+                <PrivateRoute path="/author/:uid" exact={true} children={<AuthorPage />} />
               </Switch>
             </div>
           </Router>
@@ -53,4 +55,14 @@ function Child() {
       <PaperPageComp  id={id}/>
     </>
   );
+}
+
+
+function AuthorPage() {
+  let {uid} = useParams();
+  return(
+    <>
+      <PaperAuthorPage uid={uid}/>
+    </>
+  )
 }

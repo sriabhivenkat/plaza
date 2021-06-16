@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useCallback, useContext } from 'react';
 import './PaperPageComp.css';
 import firebase from 'firebase/app';
-import { Divider } from '@material-ui/core';
-import { Document, Page } from 'react-pdf';
 import DashNavbarComp from './DashNavbarComp.js';
 import Chip from '@material-ui/core/Chip';
+import { Link, useHistory } from 'react-router-dom';
 
 const PaperPageComp = ({id}) => {
     const [pdf, setPdf] = useState("");
@@ -14,6 +13,7 @@ const PaperPageComp = ({id}) => {
     const [author, setAuthor] = useState("");
     const [abstract, setAbstract] = useState("");
     const [eli5, setEli5] = useState("");
+    const [data, setData] = useState([])
     useEffect(() => {
         const main = async() => {
           const paperData = 
@@ -32,11 +32,30 @@ const PaperPageComp = ({id}) => {
           setTitle(title);
           setInstitution(institution);
           setAuthor(author);
-          setAbstract(abstract)
+          setAbstract(abstract);
           setEli5(easydesc);
         };
         main();
       }, [])
+
+    useEffect(() => {
+        firebase
+            .firestore()
+            .collection("Users")
+            .where("name", '==', author)
+            .get()
+            .then((res) => {
+                const results = res.docs.map((x) => x.data());
+                console.log("results are,", results);
+                setData(results);
+                console.log(data)
+            })
+    }, [])
+
+    let history = useHistory()
+    function handleClick() {
+        history.push(`/author/${data[0].uidvalue}`)
+    }
     return(
         <>
             <DashNavbarComp />
@@ -44,7 +63,9 @@ const PaperPageComp = ({id}) => {
                 <div className="titlediv">
                     <h1 style={{textAlign: "center"}}><i>{title}</i></h1>
                     <div className="rowdiv">
-                        <h4>{author},</h4>
+                        <a style={{color: "black"}} onClick={handleClick}>
+                            <h4>{author},</h4>
+                        </a>
                         <h4 style={{marginLeft: 5}}>{institution}</h4>
                     </div>
                     <div className="rowdiv" style={{marginTop: -10}}>

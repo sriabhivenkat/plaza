@@ -1,0 +1,40 @@
+.authorContainer1 {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #343a40;
+}
+
+.rowContainer1 {
+  height: 100vh;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rowContainer2 {
+  height: 100vh;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+}
+
+.institution {
+  height: 10vh;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.researchFocuses {
+  height: 10vh;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
