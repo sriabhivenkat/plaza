@@ -18,6 +18,7 @@ const UploadDoc = ({history}) => {
     const [abstract, setAbstract] = useState("");
     const [title, setTitle] = useState("");
     const [titleText, setTitleText] = useState("");
+    const [random, setRandom] = useState(0)
     const {currentUser} = useContext(AuthContext);
 
     //user information state variables
@@ -85,7 +86,9 @@ const UploadDoc = ({history}) => {
         console.log(selectedTags);
     }
     
-
+    useEffect(() => {
+        setRandom(Math.random().toString(36).substring(7))
+    }, [])
     /*\
     const uploadForMe = useCallback(
         async event => {
@@ -126,7 +129,8 @@ const UploadDoc = ({history}) => {
                         .collection("Users")
                         .doc(currentUser.uid)
                         .collection("my papers")
-                        .add({
+                        .doc(random)
+                        .set({
                             title: text.value,
                             abstract: abstract.value,
                             easydesc: eli5.value,
@@ -138,7 +142,8 @@ const UploadDoc = ({history}) => {
                             firebase
                                 .firestore()
                                 .collection("Papers")
-                                .add({
+                                .doc(random)
+                                .set({
                                     title: text.value,
                                     abstract: abstract.value,
                                     easydesc: eli5.value,
@@ -147,12 +152,10 @@ const UploadDoc = ({history}) => {
                                     institution: institutionval,
                                     author: first+" "+last
                                 })
-                                .then(() => {setSubmitButtonPressed(true)})
-                                .catch((e) => console.log(e))
+                                
                         })
-                        .catch((e) => console.log(e))
                     })
-            },
+            }
         )
     }
 

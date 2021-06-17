@@ -8,11 +8,12 @@
 
 .rowContainer1 {
   height: 100vh;
-  width: 35%;
+  width: 45%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* border: 1px solid white; */
 }
 
 .rowContainer2 {
@@ -20,6 +21,24 @@
   width: 65%;
   display: flex;
   flex-direction: column;
+}
+
+.bestOf {
+  height: 40vh;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.scrollView {
+  height: 50vh;
+  width: 100%;
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .institution {
@@ -31,10 +50,24 @@
   margin-left: 20px;
 }
 
+.marketlink {
+  height: 20vh;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  border: 2px dotted white;
+}
+
+.kas {
+  color: "pink";
+}
+
 .researchFocuses {
   height: 10vh;
   width: 65%;
   display: flex;
   flex-direction: column;
   margin-left: 20px;
+  margin-top: 20px;
 }

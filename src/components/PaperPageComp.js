@@ -50,11 +50,12 @@ const PaperPageComp = ({id}) => {
                 setData(results);
                 console.log(data)
             })
-    }, [])
+    }, [author])
 
     let history = useHistory()
+    console.log("author is", data[0]?.uidvalue)
     function handleClick() {
-        history.push(`/author/${data[0].uidvalue}`)
+        history.push(`/author/${data[0]?.uidvalue}`)
     }
     return(
         <>
