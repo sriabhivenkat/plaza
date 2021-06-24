@@ -36,9 +36,9 @@ const PaperAuthorPage = ({uid}) => {
 
     useEffect(() => {
         const getPapers = async() => {
-            const snapshot = await firebase.firestore().collection("Users").doc(currentUser.uid).collection("my papers").get()
+            const snapshot = await firebase.firestore().collection("Users").doc(uid).collection("my papers").get()
             setResearchPapers(snapshot.docs.map(doc => doc.data()))
-            console.log(researchPapers)
+            console.log(researchPapers) 
         }
         getPapers();
     }, [])
@@ -72,7 +72,7 @@ const PaperAuthorPage = ({uid}) => {
                 </div>
                 <div className="rowContainer2">
                     <div className="bestOf">
-                        <h3 style={{color: "#ECDFCF", fontWeight: 200, fontSize: 20}}>Best of {first}</h3>
+                        <h3 style={{color: "#ECDFCF", fontWeight: 200, fontSize: 20}}>{first}'s Papers</h3>
                         <div className="scrollView">
                             {researchPapers?.map((item) => {
         
@@ -127,7 +127,8 @@ const PaperAuthorPage = ({uid}) => {
                         <h4 style={{color: "#ECDFCF"}}>{institution}</h4>  
                     </div>
                     <div className="marketlink">
-                    <h3 style={{color: "#ECDFCF", fontWeight: 200, fontSize: 20}}>MarketLink <span style={{fontSize: 15}}>by KASTech</span></h3>
+                        <h3 style={{color: "#ECDFCF", fontWeight: 200, fontSize: 20}}>MarketLink <span style={{fontSize: 15}}>by KASTech</span></h3>
+
                     </div>
                     <div className="researchFocuses">
                         <h3 style={{color: "#ECDFCF", fontWeight: 200, fontSize: 20}}>Research Focuses</h3>

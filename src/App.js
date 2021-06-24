@@ -12,19 +12,35 @@ import Upload from './components/pages/Upload';
 import Search from './components/pages/Search';
 import PaperPageComp from './components/PaperPageComp.js'
 import PaperAuthorPage from './components/PaperAuthorPage.js'
-
-
+import { FuegoProvider } from "@nandorojo/swr-firestore";
+import firebase from 'firebase/app';
 
 
 export const AuthContext = React.createContext(null);
 
 function App() {
 
-  const [loggedIn, setLoggedIn] = useState(false);
+  class CustomFuego {
+    // db;
+    // auth;
+    // functions;
   
+    constructor() {
+      this.db = firebase.firestore();
+      this.auth = firebase.auth;
+      // this.functions = functions;
+    }
+  }
+  
+  const fuego = new CustomFuego();
+
+
+  const [loggedIn, setLoggedIn] = useState(false);
+  document.title="Plaza"
   
   return(
     <>
+      <FuegoProvider fuego={fuego}>
         <AuthProvider>
           <Router>
             <div>
@@ -42,6 +58,7 @@ function App() {
             </div>
           </Router>
         </AuthProvider>
+      </FuegoProvider>
     </>
   )
 }

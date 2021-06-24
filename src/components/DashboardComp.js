@@ -4,36 +4,22 @@ import firebase from 'firebase/app';
 import { FormControl } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card'
 import CardDeck from 'react-bootstrap/CardDeck'
+import { useUser } from '../lib/user';
+
 
 const DashboardComp = () => {
     const [first, setFirstName] = useState("");
     const [last, setLastName] = useState("");
-
-    useEffect(() => {
-            const main = async() => {
-            const docget = firebase
-                .firestore()
-                .collection("Users")
-                .doc(firebase.auth().currentUser.uid);
-            
-            const doc = await docget.get();
-            const {firstName} = doc.data();
-            const {lastName} = doc.data();
-
-            setFirstName(firstName);
-            setLastName(lastName);
-        };
-        main();
-    }, [])
+    const {user} = useUser(firebase.auth().currentUser.uid)
     
     //const searchforshit=useCallback(async event => {
-
+    console.log(user?.firstName)
     //}, [])
-    document.title=first+"'s Dashboard"
+    document.title=user?.firstName+"'s Dashboard"
     return(
         <div className="mainDashContainer">
             <div className="dashcontainer">
-                <h4>Welcome to Plaza, {first}.</h4>
+                <h4>Welcome to Plaza, {user?.firstName}.</h4>
             </div>
             <div className="dashcontainer2">
                 <CardDeck>
